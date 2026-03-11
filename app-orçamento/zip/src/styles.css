@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-brand-dark: #0F3D2E;
+  --color-brand-vibrant: #00C853;
+  --color-brand-black: #050505;
+  --color-brand-gray: #1A1A1A;
+  --color-brand-light: #E0E0E0;
+}
+
+body {
+  @apply bg-brand-black text-white font-sans antialiased overflow-x-hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-brand-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-gray rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-dark;
+}
+
+/* Utilities */
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50;
+}
+
+.text-gradient-brand {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-vibrant to-emerald-400;
+}
+
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 40s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-right {
+  animation: marquee-right 40s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.pause-animation {
+  animation-play-state: paused !important;
+}
